@@ -4,7 +4,13 @@
  */
 package tela.login;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
+import cliente.Cliente;
 import tela.cadastro.TelaCadastro;
 
 /**
@@ -49,6 +55,8 @@ public class TelaLogin extends javax.swing.JFrame {
                 btnOkActionPerformed(evt);
             }
         });
+
+        TelaCadastro telaCadastro = new TelaCadastro();
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Senha");
@@ -127,17 +135,14 @@ public class TelaLogin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    TelaCadastro telaCadastro = new TelaCadastro();
     private void btnCadastrarTelaLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarTelaLoginActionPerformed
         new TelaCadastro().setVisible(true);
-    }//GEN-LAST:event_btnCadastrarTelaLoginActionPerformed
 
+    }//GEN-LAST:event_btnCadastrarTelaLoginActionPerformed
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt){
-        
-        String login = txtNome.getText();
-        String senha = txtSenha.getText();
-        
-        
+
+
     }
 
     /**

@@ -4,6 +4,13 @@
  */
 package tela.cadastro;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JOptionPane;
+
+import cliente.Cliente;
+
 /**
  *
  * @author samuel santana
@@ -59,6 +66,15 @@ public class TelaCadastro extends javax.swing.JFrame {
         btnCadastrar.setForeground(new java.awt.Color(0, 153, 255));
         btnCadastrar.setText("Sign in");
 
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
+
+
+
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -109,6 +125,39 @@ public class TelaCadastro extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    List<Cliente> clientes = new ArrayList<Cliente>();
+    Cliente cliente = new Cliente();
+
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt){
+        //List<Cliente> clientes = new ArrayList<Cliente>();
+
+        String nomeCliente = txtNome.getText();
+        String senhaCliente = txtSenhaCadastro.getText();
+        String confirSenha = txtSenhaCadastroConfirmacao.getText();
+        if(senhaCliente.equals(confirSenha)){
+            JOptionPane.showMessageDialog(null, "Senha são iguais!");
+            cliente.setNome(nomeCliente);
+            cliente.setSenha(senhaCliente);
+            clientes.add(cliente);
+            cliente = clientes.get(0);
+        }else{
+            JOptionPane.showMessageDialog(null, "Senha de confirmação não são iguais!");
+        }
+        JOptionPane.showMessageDialog(null, cliente.getNome());
+    }
+
+    public String getCliente(){
+        String nome="";
+        for(Cliente cl : clientes){
+            nome = cl.getNome();
+            JOptionPane.showMessageDialog(null, nome);
+        }
+        for (int i = 0; i < clientes.size(); i++) {
+            JOptionPane.showMessageDialog(null, clientes.get(i));
+        }
+        return nome;
+    }
 
     /**
      * @param args the command line arguments
